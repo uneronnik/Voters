@@ -23,7 +23,7 @@ namespace Voters.Classes
 
             foreach (var person in _people)
             {
-                if (person.IsAdult())
+                if (person.IsAdult)
                     adultPeople.Add(person);
             }
 

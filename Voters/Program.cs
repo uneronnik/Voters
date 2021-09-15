@@ -9,7 +9,7 @@ namespace Voters
 {
     class Program
     {
-        static void WriteCollection(ICollection<IWritable> collection)
+        static void WriteCollection(IEnumerable<IWritable> collection)
         {
             foreach (var item in collection)
             {
@@ -29,8 +29,8 @@ namespace Voters
             cityResidents.Add(new Person("Petr", "Petrov", "Улица Гоголя, дом мой", new DateTime(1970, 7, 5)));
 
             PeopleSelector peopleSelector = new PeopleSelector(cityResidents);
-            peopleSelector.SelectByAddress("Улица Пушкина, дом колотушкина"); 
-            peopleSelector.SelectAdultPeople(); // Выбираем из жителей города совершеннолетних по одному адресу
+            peopleSelector.SelectByAddress("Улица Пушкина, дом колотушкина"); // Выбираем из жителей города совершеннолетних по одному адресу
+            peopleSelector.SelectAdultPeople(); 
 
             List<Person> voters = new List<Person>();
             voters = peopleSelector.People; // Нужно только для того, чтобы имена переменных совпадало с содержанием
@@ -39,7 +39,7 @@ namespace Voters
 
             peopleSorter.SortByAlphabet(); // Сортируем по алфавиту
 
-            WriteCollection(voters.ToList<IWritable>());
+            WriteCollection(voters);
 
             
 

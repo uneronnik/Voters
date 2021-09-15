@@ -18,14 +18,18 @@ namespace Voters.Classes
         public string Address { get => _address; }
         public DateTime BirthDay { get => _birthDay; }
 
-        public bool IsAdult()
+        public bool IsAdult
         {
-            DateTime now = DateTime.Now;
-            TimeSpan eighteenYears = now.AddYears(18) - now;
+            get
+            {
+                DateTime now = DateTime.Now;
+                TimeSpan eighteenYears = now.AddYears(18) - now;
+                TimeSpan yearOld = DateTime.Now - _birthDay;
 
-            if (DateTime.Now - _birthDay > eighteenYears)
-                return true;
-            return false;
+                if (yearOld > eighteenYears)
+                    return true;
+                return false;
+            }
         }
 
         public Person(string name, string surname, string address, DateTime birthDay)
