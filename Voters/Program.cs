@@ -37,7 +37,7 @@ namespace Voters
 
             PeopleSorter peopleSorter = new PeopleSorter(voters);
 
-            peopleSorter.SortByAlphabyt(); // Сортируем по алфавиту
+            peopleSorter.SortByAlphabet(); // Сортируем по алфавиту
 
             WritePersonCollection(voters);
 

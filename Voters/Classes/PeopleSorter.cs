@@ -17,9 +17,12 @@ namespace Voters.Classes
 
         internal List<Person> People { get => _peopleToSort; }
 
-        public void SortByAlphabyt()
+        public void SortByAlphabet(bool ascendingOrder = true)
         {
-            _peopleToSort.Sort((left, right) => left.Surname.CompareTo(right.Surname));
+            if(ascendingOrder)
+                _peopleToSort.Sort((left, right) => left.Surname.CompareTo(right.Surname));
+            else
+                _peopleToSort.Sort((left, right) => right.Surname.CompareTo(left.Surname));
         }
     }
 }
