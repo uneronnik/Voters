@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Voters.Interfaces;
 
 namespace Voters.Classes
 {
-    class Person
+    class Person : IWritable
     {
         string _name;
         string _surname;
@@ -35,7 +36,7 @@ namespace Voters.Classes
             _birthDay = birthDay;
         }
 
-        public void WriteData()
+        void IWritable.WriteData()
         {
             Console.WriteLine($"Имя: {_name}");
             Console.WriteLine($"Фамилия: {_surname}");

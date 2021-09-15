@@ -46,6 +46,7 @@
     <Compile Include="Classes\PeopleSelector.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\PeopleSorter.cs" />
+    <Compile Include="Interfaces\IWritable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

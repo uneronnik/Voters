@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Voters.Classes;
-
+using Voters.Interfaces;
 namespace Voters
 {
     class Program
     {
-        static void WritePersonCollection(ICollection<Person> people)
+        static void WriteCollection(ICollection<IWritable> collection)
         {
-            foreach (var person in people)
+            foreach (var item in collection)
             {
-                person.WriteData();
+                item.WriteData();
                 Console.WriteLine();
             }
         }
@@ -39,7 +39,7 @@ namespace Voters
 
             peopleSorter.SortByAlphabet(); // Сортируем по алфавиту
 
-            WritePersonCollection(voters);
+            WriteCollection(new List<IWritable>(voters));
 
             
 
