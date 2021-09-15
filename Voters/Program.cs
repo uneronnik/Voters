@@ -39,7 +39,7 @@ namespace Voters
 
             peopleSorter.SortByAlphabet(); // Сортируем по алфавиту
 
-            WriteCollection(new List<IWritable>(voters));
+            WriteCollection(voters.ToList<IWritable>());
 
             
 
