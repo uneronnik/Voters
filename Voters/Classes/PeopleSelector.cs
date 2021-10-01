@@ -19,28 +19,19 @@ namespace Voters.Classes
 
         public void SelectAdultPeople()
         {
-            List<Person> adultPeople = new List<Person>();
+            _people = (from person 
+                       in _people 
+                       where person.IsAdult == true 
+                       select person).ToList();
 
-            foreach (var person in _people)
-            {
-                if (person.IsAdult)
-                    adultPeople.Add(person);
-            }
-
-            _people = adultPeople;
         }
 
         public void SelectByAddress(string address)
         {
-            List<Person> selectedPeople = new List<Person>();
-
-            foreach (var person in _people)
-            {
-                if(person.Address == address)
-                    selectedPeople.Add(person);
-            }
-
-            _people = selectedPeople;
+            _people = (from person
+                       in _people
+                       where person.Address == address
+                       select person).ToList();
         }
     }
 }

@@ -17,12 +17,19 @@ namespace Voters.Classes
 
         internal List<Person> People { get => _peopleToSort; }
 
-        public void SortByAlphabet(bool ascendingOrder = true)
+        public List<Person> SortByAlphabet(bool ascendingOrder = true)
         {
-            if(ascendingOrder)
-                _peopleToSort.Sort((left, right) => left.Surname.CompareTo(right.Surname));
+            if (ascendingOrder)
+                _peopleToSort = (from person
+                                in _peopleToSort
+                                 orderby person.Surname ascending
+                                 select person).ToList();
             else
-                _peopleToSort.Sort((left, right) => right.Surname.CompareTo(left.Surname));
+                _peopleToSort = (from person
+                                in _peopleToSort
+                                 orderby person.Surname descending
+                                 select person).ToList();
+            return _peopleToSort;
         }
     }
 }

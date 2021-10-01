@@ -22,9 +22,9 @@ namespace Voters
         {
 
             List<Person> cityResidents = new List<Person>();
-
             cityResidents.Add(new Person("Nikita", "Mazov", "Улица Пушкина, дом колотушкина", new DateTime(1999, 7, 21)));
             cityResidents.Add(new Person("Andrey", "Ivanov", "Улица Пушкина, дом колотушкина", new DateTime(1980, 5, 3)));
+            
             cityResidents.Add(new Person("Petr", "Petrov", "Улица Пушкина, дом колотушкина", new DateTime(2013, 5, 19)));
             cityResidents.Add(new Person("Petr", "Petrov", "Улица Гоголя, дом мой", new DateTime(1970, 7, 5)));
 
@@ -37,7 +37,7 @@ namespace Voters
 
             PeopleSorter peopleSorter = new PeopleSorter(voters);
 
-            peopleSorter.SortByAlphabet(); // Сортируем по алфавиту
+            voters = peopleSorter.SortByAlphabet(true); // Сортируем по алфавиту
 
             WriteCollection(voters);
 
