@@ -22,12 +22,12 @@ namespace Voters.Classes
             if (ascendingOrder)
                 _peopleToSort = (from person
                                 in _peopleToSort
-                                 orderby person.Surname ascending
+                                 orderby person.Surname, person.Name ascending
                                  select person).ToList();
             else
                 _peopleToSort = (from person
                                 in _peopleToSort
-                                 orderby person.Surname descending
+                                 orderby person.Surname, person.Name descending
                                  select person).ToList();
             return _peopleToSort;
         }
